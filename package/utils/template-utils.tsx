@@ -34,9 +34,9 @@ const MORE_TEMPLATES: TemplateConfig[] = [
     icon: 'NotepadText',
   },
   {
-    id: 'resume',
-    label: 'Resume',
-    icon: '📄',
+    id: 'todo-list',
+    label: 'To-do',
+    icon: 'ListChecks',
   },
   {
     id: 'brainstorm',
@@ -44,24 +44,13 @@ const MORE_TEMPLATES: TemplateConfig[] = [
     icon: 'Lightbulb',
   },
   {
-    id: 'pretend-to-work',
-    label: 'Pretend to work',
-    icon: '🏄🏻‍♂️',
+    id: 'resume',
+    label: 'Resume',
+    icon: '📄',
   },
 ];
 
-const QUICK_TEMPLATES: TemplateConfig[] = [
-  {
-    id: 'todo-list',
-    label: 'To-do',
-    icon: 'ListChecks',
-  },
-  {
-    id: 'breathe',
-    label: 'Breathe!',
-    icon: '🧘‍♂️',
-  },
-];
+const QUICK_TEMPLATES: TemplateConfig[] = [];
 
 const createTemplateButton = (
   config: TemplateConfig,
