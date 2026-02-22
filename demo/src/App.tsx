@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import DdocEditor from '../../package/ddoc-editor';
-import { JSONContent } from '@tiptap/react';
 import {
   Button,
   Tag,
@@ -14,8 +13,6 @@ import {
 } from '@fileverse/ui';
 import { useMediaQuery } from 'usehooks-ts';
 import { IComment } from '../../package/extensions/comment';
-import { fromUint8Array } from 'js-base64';
-import { crypto as cryptoUtils } from './crypto';
 import { collabStore } from './storage/collab-store';
 import { ICollaborationConfig } from '../../package/types';
 import { getKeyFromURLParams } from './utils';
@@ -146,52 +143,7 @@ function App() {
     }
   }, []);
 
-  const onToggleCollaboration = async () => {
-    const name = prompt('Whats your username');
-    if (!name) return;
-    const { privateKey } = cryptoUtils.generateKeyPair();
-
-    const collaborationId = crypto.randomUUID();
-    const privateKeyBase64 = fromUint8Array(privateKey, true);
-
-    const collabConfig = {
-      roomKey: privateKeyBase64,
-      collaborationId,
-      username: name,
-      isOwner: true,
-      ownerEdSecret: import.meta.env.VITE_OWNER_ED_SECRET,
-      contractAddress: import.meta.env.VITE_COLLAB_CONTRACT_ADDRESS,
-      ownerAddress: import.meta.env.VITE_COLLAB_OWNER_ADDRESS,
-      isEns: true,
-      wsUrl: import.meta.env.VITE_COLLAB_WS_URL,
-    };
-    setCollabConf(collabConfig);
-
-    collabStore.setCollabConf(collabConfig);
-
-    setCollaborationId(collaborationId);
-    setUsername(name);
-    setEnableCollaboration(true);
-    console.log(
-      `${window.location.origin}?collaborationId=${collaborationId}#key=${privateKeyBase64}`,
-    );
-
-    // copy to clipboard
-    await navigator.clipboard.writeText(
-      `${window.location.origin}?collaborationId=${collaborationId}#key=${privateKeyBase64}`,
-    );
-
-    toast({
-      title: 'Collaboration link copied to clipboard',
-      variant: 'success',
-      toastType: 'mini',
-      iconType: 'icon',
-    });
-  };
-
-  const renderNavbar = ({ editor }: { editor: JSONContent }): JSX.Element => {
-    const publishDoc = () => console.log(editor, title);
-
+  const renderNavbar = (): JSX.Element => {
     return (
       <>
         <div className="flex items-center gap-[12px]">

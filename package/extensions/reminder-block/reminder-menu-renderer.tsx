@@ -51,10 +51,6 @@ export function showReminderMenu(
           editor
             .chain()
             .focus()
-            .setReminderBlock({
-              id: reminder.id,
-              reminder: reminder,
-            })
             .run();
 
           const extensionOptions = editor.extensionManager.extensions.find(

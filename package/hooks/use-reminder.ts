@@ -34,10 +34,6 @@ export const useReminder = ({
       editor
         .chain()
         .focus()
-        .setReminderBlock({
-          id: reminder.id,
-          reminder: reminder,
-        })
         .run();
 
       // Delegate to consumer app for notification handling
