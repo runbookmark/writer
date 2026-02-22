@@ -308,12 +308,6 @@ function App() {
               />
             </>
           )}
-          <IconButton
-            variant={'ghost'}
-            icon="MessageSquareText"
-            size="md"
-            onClick={() => setCommentDrawerOpen((prev) => !prev)}
-          />
         </div>
       </>
     );
