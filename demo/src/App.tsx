@@ -282,7 +282,7 @@ function App() {
                   </Button>
                   <Button
                     variant={'ghost'}
-                    onClick={() => {}}
+                    onClick={() => { }}
                     className="flex justify-start gap-2"
                   >
                     <LucideIcon name="Share2" size="sm" />
@@ -330,12 +330,6 @@ function App() {
               />
             </>
           )}
-          <IconButton
-            variant={'ghost'}
-            icon="MessageSquareText"
-            size="md"
-            onClick={() => setCommentDrawerOpen((prev) => !prev)}
-          />
           {!enableCollaboration ? (
             <IconButton
               variant={'ghost'}
@@ -454,14 +448,14 @@ function App() {
         setZoomLevel={setZoomLevel}
         isNavbarVisible={isNavbarVisible}
         setIsNavbarVisible={setIsNavbarVisible}
-        onComment={(): void => {}}
-        onInlineComment={(): void => {}}
-        onMarkdownImport={(): void => {}}
-        onMarkdownExport={(): void => {}}
-        onPdfExport={(): void => {}}
-        onHtmlExport={(): void => {}}
-        onTxtExport={(): void => {}}
-        onDocxImport={(): void => {}}
+        onComment={(): void => { }}
+        onInlineComment={(): void => { }}
+        onMarkdownImport={(): void => { }}
+        onMarkdownExport={(): void => { }}
+        onPdfExport={(): void => { }}
+        onHtmlExport={(): void => { }}
+        onTxtExport={(): void => { }}
+        onDocxImport={(): void => { }}
         initialComments={initialComments}
         onCommentReply={handleReplyOnComment}
         onNewComment={handleNewComment}
@@ -472,7 +466,7 @@ function App() {
         showTOC={showTOC}
         setShowTOC={setShowTOC}
         isConnected={isConnected}
-        connectViaWallet={async () => {}}
+        connectViaWallet={async () => { }}
         isLoading={false}
         connectViaUsername={handleConnectViaUsername}
         onCopyHeadingLink={(link: string) => {
