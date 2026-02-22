@@ -282,7 +282,7 @@ function App() {
                   </Button>
                   <Button
                     variant={'ghost'}
-                    onClick={() => {}}
+                    onClick={() => { }}
                     className="flex justify-start gap-2"
                   >
                     <LucideIcon name="Share2" size="sm" />
@@ -393,13 +393,6 @@ function App() {
           >
             Share
           </Button>
-          <div className="flex gap-2 px-2 justify-center items-center">
-            <LucideIcon name="Farcaster" />
-            <div className="flex-col hidden xl:flex">
-              <p className="text-heading-xsm">@[username]</p>
-              <p className="text-helper-text-sm">Farcaster</p>
-            </div>
-          </div>
         </div>
       </>
     );
@@ -454,14 +447,14 @@ function App() {
         setZoomLevel={setZoomLevel}
         isNavbarVisible={isNavbarVisible}
         setIsNavbarVisible={setIsNavbarVisible}
-        onComment={(): void => {}}
-        onInlineComment={(): void => {}}
-        onMarkdownImport={(): void => {}}
-        onMarkdownExport={(): void => {}}
-        onPdfExport={(): void => {}}
-        onHtmlExport={(): void => {}}
-        onTxtExport={(): void => {}}
-        onDocxImport={(): void => {}}
+        onComment={(): void => { }}
+        onInlineComment={(): void => { }}
+        onMarkdownImport={(): void => { }}
+        onMarkdownExport={(): void => { }}
+        onPdfExport={(): void => { }}
+        onHtmlExport={(): void => { }}
+        onTxtExport={(): void => { }}
+        onDocxImport={(): void => { }}
         initialComments={initialComments}
         onCommentReply={handleReplyOnComment}
         onNewComment={handleNewComment}
@@ -472,7 +465,7 @@ function App() {
         showTOC={showTOC}
         setShowTOC={setShowTOC}
         isConnected={isConnected}
-        connectViaWallet={async () => {}}
+        connectViaWallet={async () => { }}
         isLoading={false}
         connectViaUsername={handleConnectViaUsername}
         onCopyHeadingLink={(link: string) => {
