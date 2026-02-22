@@ -17,8 +17,7 @@ import { IComment } from '../../package/extensions/comment';
 import { fromUint8Array } from 'js-base64';
 import { crypto as cryptoUtils } from './crypto';
 import { collabStore } from './storage/collab-store';
-import { DocumentStylingPanel } from './DocumentStylingPanel';
-import { DocumentStyling, ICollaborationConfig } from '../../package/types';
+import { ICollaborationConfig } from '../../package/types';
 import { getKeyFromURLParams } from './utils';
 
 function App() {
@@ -35,12 +34,6 @@ function App() {
 
   const [, setCharacterCount] = useState(0);
   const [, setWordCount] = useState(0);
-
-  // Document styling state - starts undefined to allow dark mode to work
-  const [documentStyling, setDocumentStyling] = useState<
-    DocumentStyling | undefined
-  >(undefined);
-  const [showStylingControls, setShowStylingControls] = useState(false);
 
   const [inlineCommentData, setInlineCommentData] = useState({
     inlineCommentText: '',
@@ -300,12 +293,6 @@ function App() {
                   setIsPresentationMode(true);
                 }}
               />
-              <IconButton
-                variant={'ghost'}
-                icon="Palette"
-                size="md"
-                onClick={() => setShowStylingControls(!showStylingControls)}
-              />
             </>
           )}
         </div>
@@ -324,12 +311,6 @@ function App() {
 
   return (
     <div>
-      <DocumentStylingPanel
-        isOpen={showStylingControls}
-        onClose={() => setShowStylingControls(false)}
-        documentStyling={documentStyling}
-        onStylingChange={setDocumentStyling}
-      />
       <DdocEditor
         ref={editorRef}
         enableCollaboration={enableCollaboration}
@@ -388,7 +369,6 @@ function App() {
         }}
         collabConfig={collabConfig}
         onCollaboratorChange={onCollaboratorChange}
-        documentStyling={documentStyling}
         setCharacterCount={setCharacterCount}
         setWordCount={setWordCount}
       />
