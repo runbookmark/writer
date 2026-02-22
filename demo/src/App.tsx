@@ -148,7 +148,7 @@ function App() {
     if (collabConfig) {
       setCollabConf(collabConfig);
       setCollaborationId(collabConfig.collaborationId);
-      setUsername(collabConfig.username);
+      setUsername('box');
       setEnableCollaboration(true);
     }
   }, []);
@@ -282,14 +282,6 @@ function App() {
                   </Button>
                   <Button
                     variant={'ghost'}
-                    onClick={() => { }}
-                    className="flex justify-start gap-2"
-                  >
-                    <LucideIcon name="Share2" size="sm" />
-                    Share
-                  </Button>
-                  <Button
-                    variant={'ghost'}
                     onClick={() => setShowStylingControls(!showStylingControls)}
                     className="flex justify-start gap-2"
                   >
@@ -315,12 +307,6 @@ function App() {
                   commentDrawerOpen && setCommentDrawerOpen(false);
                   setIsPresentationMode(true);
                 }}
-              />
-              <IconButton
-                variant={'ghost'}
-                icon="Share2"
-                className="flex xl:hidden"
-                size="md"
               />
               <IconButton
                 variant={'ghost'}
@@ -383,16 +369,6 @@ function App() {
               }
             />
           )}
-
-          <Button
-            onClick={publishDoc}
-            toggleLeftIcon={true}
-            leftIcon="Share2"
-            variant={'ghost'}
-            className="!min-w-[90px] !px-0 hidden xl:flex"
-          >
-            Share
-          </Button>
         </div>
       </>
     );
