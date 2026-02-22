@@ -47,7 +47,6 @@ export const CommentSection = ({
     unresolveComment,
     deleteComment,
     isConnected,
-    connectViaWallet,
     isLoading,
     connectViaUsername,
     isDDocOwner,
@@ -105,7 +104,6 @@ export const CommentSection = ({
   if (!isConnected) {
     return (
       <CommentUsername
-        connectViaWallet={connectViaWallet}
         username={username as string}
         setUsername={setUsername}
         isNavbarVisible={isNavbarVisible as boolean}
@@ -244,8 +242,8 @@ export const CommentSection = ({
               ensStatus.isEns
                 ? EnsLogo
                 : `https://api.dicebear.com/9.x/identicon/svg?seed=${encodeURIComponent(
-                    ensStatus.name,
-                  )}`
+                  ensStatus.name,
+                )}`
             }
             size="sm"
             className="min-w-6"

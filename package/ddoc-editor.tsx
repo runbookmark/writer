@@ -109,7 +109,6 @@ const DdocEditor = forwardRef(
       showTOC,
       setShowTOC,
       isConnected,
-      connectViaWallet,
       isLoading,
       connectViaUsername,
       isDDocOwner,
@@ -200,7 +199,7 @@ const DdocEditor = forwardRef(
         documentStyling?.orientation === 'landscape' ? 'landscape' : 'portrait';
       const dimensions =
         CANVAS_DIMENSIONS[orientation][
-          zoomLevel as keyof typeof CANVAS_DIMENSIONS.portrait
+        zoomLevel as keyof typeof CANVAS_DIMENSIONS.portrait
         ];
 
       if (!dimensions) return {};
@@ -618,9 +617,9 @@ const DdocEditor = forwardRef(
                 'w-full mx-auto rounded transition-all duration-300 ease-in-out',
                 !documentStyling?.canvasBackground && 'color-bg-default',
                 !isPreviewMode &&
-                  (isNavbarVisible
-                    ? '-mt-[1.5rem] md:!mt-[0.8rem] pt-0 md:pt-[5rem]'
-                    : 'pt-0 md:pt-[1.5rem]'),
+                (isNavbarVisible
+                  ? '-mt-[1.5rem] md:!mt-[0.8rem] pt-0 md:pt-[5rem]'
+                  : 'pt-0 md:pt-[1.5rem]'),
                 isPreviewMode && 'md:!mt-[1rem] pt-0 md:!pt-[5rem]',
                 { 'md:!mt-[0.7rem]': !isPreviewMode },
                 {
@@ -736,109 +735,109 @@ const DdocEditor = forwardRef(
 
                 {!editor || isContentLoading
                   ? fadeInTransition(
-                      <div className={`${!isMobile ? 'mx-20' : 'mx-10 mt-10'}`}>
-                        <Skeleton
-                          className={`${isPreviewMode ? 'w-full' : isMobile ? 'w-full' : 'w-[400px]'}  h-[32px] rounded-sm mb-4`}
-                        />
-                        {isPreviewMode && <PreviewContentLoader />}
-                      </div>,
-                      'content-transition',
-                    )
+                    <div className={`${!isMobile ? 'mx-20' : 'mx-10 mt-10'}`}>
+                      <Skeleton
+                        className={`${isPreviewMode ? 'w-full' : isMobile ? 'w-full' : 'w-[400px]'}  h-[32px] rounded-sm mb-4`}
+                      />
+                      {isPreviewMode && <PreviewContentLoader />}
+                    </div>,
+                    'content-transition',
+                  )
                   : slideUpTransition(
-                      <div>
-                        <EditingProvider
-                          isPreviewMode={isPreviewMode}
-                          isCollaboratorsDoc={
-                            !!collabConfig?.roomKey && !collabConfig?.isOwner
-                          }
-                        >
-                          {tags && tags.length > 0 && (
-                            <div
-                              ref={tagsContainerRef}
-                              className={cn(
-                                'flex flex-wrap px-4 md:px-8 lg:px-[80px] mb-8 items-center gap-1 mt-4 lg:!mt-0',
-                                { 'pt-12': isPreviewMode },
-                              )}
-                              {...(getCanvasStyle() && {
-                                style: getCanvasStyle(),
-                              })}
-                            >
-                              {visibleTags.map((tag, index) => (
-                                <Tag
-                                  key={index}
-                                  style={{ backgroundColor: tag?.color }}
-                                  onRemove={() => handleRemoveTag(tag?.name)}
-                                  isRemovable={!isPreviewMode}
-                                  className="!h-6 rounded"
-                                >
-                                  {tag?.name}
-                                </Tag>
-                              ))}
-                              {hiddenTagsCount > 0 && !isHiddenTagsVisible && (
-                                <Button
-                                  variant="ghost"
-                                  className="!h-6 rounded min-w-fit !px-2 color-bg-secondary text-helper-text-sm"
-                                  onClick={() => setIsHiddenTagsVisible(true)}
-                                >
-                                  +{hiddenTagsCount}
-                                </Button>
-                              )}
+                    <div>
+                      <EditingProvider
+                        isPreviewMode={isPreviewMode}
+                        isCollaboratorsDoc={
+                          !!collabConfig?.roomKey && !collabConfig?.isOwner
+                        }
+                      >
+                        {tags && tags.length > 0 && (
+                          <div
+                            ref={tagsContainerRef}
+                            className={cn(
+                              'flex flex-wrap px-4 md:px-8 lg:px-[80px] mb-8 items-center gap-1 mt-4 lg:!mt-0',
+                              { 'pt-12': isPreviewMode },
+                            )}
+                            {...(getCanvasStyle() && {
+                              style: getCanvasStyle(),
+                            })}
+                          >
+                            {visibleTags.map((tag, index) => (
+                              <Tag
+                                key={index}
+                                style={{ backgroundColor: tag?.color }}
+                                onRemove={() => handleRemoveTag(tag?.name)}
+                                isRemovable={!isPreviewMode}
+                                className="!h-6 rounded"
+                              >
+                                {tag?.name}
+                              </Tag>
+                            ))}
+                            {hiddenTagsCount > 0 && !isHiddenTagsVisible && (
+                              <Button
+                                variant="ghost"
+                                className="!h-6 rounded min-w-fit !px-2 color-bg-secondary text-helper-text-sm"
+                                onClick={() => setIsHiddenTagsVisible(true)}
+                              >
+                                +{hiddenTagsCount}
+                              </Button>
+                            )}
 
-                              {isHiddenTagsVisible && (
-                                <motion.div
-                                  initial={{ opacity: 0, height: 0 }}
-                                  animate={{ opacity: 1, height: 'auto' }}
-                                  exit={{ opacity: 0, height: 0 }}
-                                  transition={{ duration: 0.3 }}
-                                  className="flex flex-wrap items-center gap-1"
-                                >
-                                  {selectedTags?.slice(4).map((tag, index) => (
-                                    <Tag
-                                      key={index + 4}
-                                      style={{ backgroundColor: tag?.color }}
-                                      onRemove={() =>
-                                        handleRemoveTag(tag?.name)
-                                      }
-                                      isRemovable={!isPreviewMode}
-                                      className="!h-6 rounded"
-                                    >
-                                      {tag?.name}
-                                    </Tag>
-                                  ))}
-                                </motion.div>
-                              )}
+                            {isHiddenTagsVisible && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.3 }}
+                                className="flex flex-wrap items-center gap-1"
+                              >
+                                {selectedTags?.slice(4).map((tag, index) => (
+                                  <Tag
+                                    key={index + 4}
+                                    style={{ backgroundColor: tag?.color }}
+                                    onRemove={() =>
+                                      handleRemoveTag(tag?.name)
+                                    }
+                                    isRemovable={!isPreviewMode}
+                                    className="!h-6 rounded"
+                                  >
+                                    {tag?.name}
+                                  </Tag>
+                                ))}
+                              </motion.div>
+                            )}
 
-                              {selectedTags && selectedTags?.length < 6 ? (
-                                <TagInput
-                                  tags={tags || []}
-                                  selectedTags={selectedTags as TagType[]}
-                                  onAddTag={handleAddTag}
-                                  isPreviewMode={isPreviewMode}
-                                />
-                              ) : null}
-                            </div>
-                          )}
-                          <div className="grammarly-wrapper">
-                            <EditorContent
-                              editor={editor}
-                              id="editor"
-                              className={cn(
-                                'w-full h-auto',
-                                isPreviewMode && 'preview-mode',
-                                activeModel !== undefined &&
-                                  isAIAgentEnabled &&
-                                  'has-available-models',
-                                disableInlineComment && 'hide-inline-comments',
-                              )}
-                              {...(getCanvasStyle() && {
-                                style: getCanvasStyle(),
-                              })}
-                            />
+                            {selectedTags && selectedTags?.length < 6 ? (
+                              <TagInput
+                                tags={tags || []}
+                                selectedTags={selectedTags as TagType[]}
+                                onAddTag={handleAddTag}
+                                isPreviewMode={isPreviewMode}
+                              />
+                            ) : null}
                           </div>
-                        </EditingProvider>
-                      </div>,
-                      'editor-transition',
-                    )}
+                        )}
+                        <div className="grammarly-wrapper">
+                          <EditorContent
+                            editor={editor}
+                            id="editor"
+                            className={cn(
+                              'w-full h-auto',
+                              isPreviewMode && 'preview-mode',
+                              activeModel !== undefined &&
+                              isAIAgentEnabled &&
+                              'has-available-models',
+                              disableInlineComment && 'hide-inline-comments',
+                            )}
+                            {...(getCanvasStyle() && {
+                              style: getCanvasStyle(),
+                            })}
+                          />
+                        </div>
+                      </EditingProvider>
+                    </div>,
+                    'editor-transition',
+                  )}
               </div>
             </div>
             {showCommentButton && !isNativeMobile && (
@@ -924,7 +923,7 @@ const DdocEditor = forwardRef(
             className={cn(
               'h-[100%] w-full custom-scrollbar',
               !isPreviewMode &&
-                (isNavbarVisible ? 'mt-[6.7rem]' : 'mt-[3.3rem]'),
+              (isNavbarVisible ? 'mt-[6.7rem]' : 'mt-[3.3rem]'),
               isPreviewMode && 'mt-[3.5rem]',
               {
                 'overflow-x-hidden': zoomLevel !== '2',
@@ -966,7 +965,6 @@ const DdocEditor = forwardRef(
                 onDeleteComment={onDeleteComment}
                 ensResolutionUrl={ensResolutionUrl as string}
                 isConnected={isConnected}
-                connectViaWallet={connectViaWallet}
                 isLoading={isLoading}
                 connectViaUsername={connectViaUsername}
                 isDDocOwner={isDDocOwner}

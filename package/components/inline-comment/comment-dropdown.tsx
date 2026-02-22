@@ -58,7 +58,6 @@ export const CommentDropdown = ({
     setCommentDrawerOpen,
     isLoading,
     connectViaUsername,
-    connectViaWallet,
     setUsername,
   } = useComments();
 
@@ -237,41 +236,6 @@ export const CommentDropdown = ({
             className="w-full"
           >
             Join
-          </Button>
-        </div>
-
-        <div className="text-[12px] text-gray-400 flex items-center my-3">
-          <Divider
-            direction="horizontal"
-            size="md"
-            className="flex-grow md:!mr-4"
-          />
-          or join with your&nbsp;
-          <span className="font-semibold">.eth&nbsp;</span> domain
-          <Divider
-            direction="horizontal"
-            size="md"
-            className="flex-grow md:!ml-4"
-          />
-        </div>
-
-        <div className="text-center">
-          <Button
-            onClick={
-              !isConnected &&
-              (() => {
-                connectViaWallet();
-                setInlineCommentData((prev) => ({
-                  ...prev,
-                  handleClick: true,
-                }));
-              })
-            }
-            disabled={isLoading}
-            className="custom-ens-button"
-          >
-            <img alt="ens-logo" src={EnsLogo} />{' '}
-            {isLoading ? 'Connecting with ENS ...' : 'Continue with ENS'}
           </Button>
         </div>
       </div>

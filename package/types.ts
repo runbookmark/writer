@@ -29,7 +29,6 @@ export type InlineCommentData = {
 
 export interface CommentAccountProps {
   isConnected?: boolean;
-  connectViaWallet?: () => Promise<void>;
   isLoading?: boolean;
   connectViaUsername?: (username: string) => Promise<void>;
   isDDocOwner?: boolean;

@@ -102,27 +102,27 @@ The `documentStyling` prop allows you to customize the visual appearance of your
 
 ```typescript
 interface DocumentStyling {
-  /** 
+  /**
    * Background styling for the outer document area.
    * Supports CSS background values including gradients.
    * Example: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
    */
   background?: string;
-  
-  /** 
+
+  /**
    * Background color for the editor canvas/content area.
    * Should be a solid color value.
    * Example: "#ffffff" or "rgb(255, 255, 255)"
    */
   canvasBackground?: string;
-  
-  /** 
+
+  /**
    * Text color for the editor content.
    * Example: "#333333" or "rgb(51, 51, 51)"
    */
   textColor?: string;
-  
-  /** 
+
+  /**
    * Font family for the editor content.
    * Example: "Inter, sans-serif" or "'Times New Roman', serif"
    */
@@ -168,7 +168,6 @@ interface DocumentStyling {
 | `isConnected`        | `boolean`                             | User connection status              |
 | `isLoading`          | `boolean`                             | Authentication loading state        |
 | `connectViaUsername` | `(username: string) => Promise<void>` | Username-based authentication       |
-| `connectViaWallet`   | `() => Promise<void>`                 | Wallet-based authentication         |
 | `isDDocOwner`        | `boolean`                             | Indicates if user owns the document |
 
 ## Utility Props
