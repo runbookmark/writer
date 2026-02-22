@@ -280,14 +280,6 @@ function App() {
                     />
                     {isPreviewMode ? 'Edit' : 'Preview'}
                   </Button>
-                  <Button
-                    variant={'ghost'}
-                    onClick={() => setShowStylingControls(!showStylingControls)}
-                    className="flex justify-start gap-2"
-                  >
-                    <LucideIcon name="Palette" size="sm" />
-                    Styling
-                  </Button>
                 </div>
               }
             />
@@ -322,53 +314,6 @@ function App() {
             size="md"
             onClick={() => setCommentDrawerOpen((prev) => !prev)}
           />
-          {!enableCollaboration ? (
-            <IconButton
-              variant={'ghost'}
-              icon="Users"
-              size="md"
-              onClick={onToggleCollaboration}
-            />
-          ) : (
-            <DynamicDropdown
-              key="navbar-more-actions"
-              align="center"
-              sideOffset={10}
-              anchorTrigger={
-                <IconButton icon={'Users'} variant="ghost" size="md" />
-              }
-              content={
-                <div className="flex flex-col gap-1 p-2 w-fit shadow-elevation-3 ">
-                  {collabConfig?.isOwner ? (
-                    <Button
-                      variant={'ghost'}
-                      onClick={() => {
-                        editorRef.current?.terminateSession();
-                        setEnableCollaboration(false);
-                        setCollabConf(undefined);
-                        setCollaborationId('');
-                        setUsername('');
-                        collabStore.clearCollabConf();
-                      }}
-                    >
-                      Stop Collaboration
-                    </Button>
-                  ) : null}
-                  <Button
-                    onClick={() => {
-                      const base_name = 'sussy_baka';
-                      const random_number = Math.floor(Math.random() * 1000000);
-                      const new_name = `${base_name}_${random_number}`;
-                      editorRef.current?.updateCollaboratorName(new_name);
-                    }}
-                    variant={'ghost'}
-                  >
-                    Update Collaborator Name
-                  </Button>
-                </div>
-              }
-            />
-          )}
         </div>
       </>
     );
