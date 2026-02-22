@@ -147,7 +147,32 @@ function App() {
     return (
       <>
         <div className="flex items-center gap-[12px]">
-          <IconButton variant={'ghost'} icon="Menu" size="md" />
+          <DynamicDropdown
+            key="menu-panel"
+            align="start"
+            sideOffset={10}
+            anchorTrigger={
+              <IconButton variant={'ghost'} icon="Menu" size="md" />
+            }
+            content={
+              <div className="flex flex-col gap-1 p-2 w-fit shadow-elevation-3">
+                <a
+                  href="https://github.com/runbookmark/writer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="no-underline"
+                >
+                  <Button
+                    variant={'ghost'}
+                    className="flex justify-start gap-2 w-full"
+                  >
+                    <LucideIcon name="Github" size="sm" />
+                    View source code
+                  </Button>
+                </a>
+              </div>
+            }
+          />
 
           <div className="relative truncate inline-block xl:!max-w-[300px] !max-w-[108px] color-bg-default text-[14px] font-medium leading-[20px]">
             <span className="invisible whitespace-pre">
