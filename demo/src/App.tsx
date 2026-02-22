@@ -17,8 +17,7 @@ import { IComment } from '../../package/extensions/comment';
 import { fromUint8Array } from 'js-base64';
 import { crypto as cryptoUtils } from './crypto';
 import { collabStore } from './storage/collab-store';
-import { DocumentStylingPanel } from './DocumentStylingPanel';
-import { DocumentStyling, ICollaborationConfig } from '../../package/types';
+import { ICollaborationConfig } from '../../package/types';
 import { getKeyFromURLParams } from './utils';
 
 function App() {
@@ -35,12 +34,6 @@ function App() {
 
   const [, setCharacterCount] = useState(0);
   const [, setWordCount] = useState(0);
-
-  // Document styling state - starts undefined to allow dark mode to work
-  const [documentStyling, setDocumentStyling] = useState<
-    DocumentStyling | undefined
-  >(undefined);
-  const [showStylingControls, setShowStylingControls] = useState(false);
 
   const [inlineCommentData, setInlineCommentData] = useState({
     inlineCommentText: '',
@@ -282,19 +275,11 @@ function App() {
                   </Button>
                   <Button
                     variant={'ghost'}
-                    onClick={() => {}}
+                    onClick={() => { }}
                     className="flex justify-start gap-2"
                   >
                     <LucideIcon name="Share2" size="sm" />
                     Share
-                  </Button>
-                  <Button
-                    variant={'ghost'}
-                    onClick={() => setShowStylingControls(!showStylingControls)}
-                    className="flex justify-start gap-2"
-                  >
-                    <LucideIcon name="Palette" size="sm" />
-                    Styling
                   </Button>
                 </div>
               }
@@ -321,12 +306,6 @@ function App() {
                 icon="Share2"
                 className="flex xl:hidden"
                 size="md"
-              />
-              <IconButton
-                variant={'ghost'}
-                icon="Palette"
-                size="md"
-                onClick={() => setShowStylingControls(!showStylingControls)}
               />
             </>
           )}
@@ -416,12 +395,6 @@ function App() {
 
   return (
     <div>
-      <DocumentStylingPanel
-        isOpen={showStylingControls}
-        onClose={() => setShowStylingControls(false)}
-        documentStyling={documentStyling}
-        onStylingChange={setDocumentStyling}
-      />
       <DdocEditor
         ref={editorRef}
         enableCollaboration={enableCollaboration}
@@ -454,14 +427,14 @@ function App() {
         setZoomLevel={setZoomLevel}
         isNavbarVisible={isNavbarVisible}
         setIsNavbarVisible={setIsNavbarVisible}
-        onComment={(): void => {}}
-        onInlineComment={(): void => {}}
-        onMarkdownImport={(): void => {}}
-        onMarkdownExport={(): void => {}}
-        onPdfExport={(): void => {}}
-        onHtmlExport={(): void => {}}
-        onTxtExport={(): void => {}}
-        onDocxImport={(): void => {}}
+        onComment={(): void => { }}
+        onInlineComment={(): void => { }}
+        onMarkdownImport={(): void => { }}
+        onMarkdownExport={(): void => { }}
+        onPdfExport={(): void => { }}
+        onHtmlExport={(): void => { }}
+        onTxtExport={(): void => { }}
+        onDocxImport={(): void => { }}
         initialComments={initialComments}
         onCommentReply={handleReplyOnComment}
         onNewComment={handleNewComment}
@@ -472,7 +445,7 @@ function App() {
         showTOC={showTOC}
         setShowTOC={setShowTOC}
         isConnected={isConnected}
-        connectViaWallet={async () => {}}
+        connectViaWallet={async () => { }}
         isLoading={false}
         connectViaUsername={handleConnectViaUsername}
         onCopyHeadingLink={(link: string) => {
@@ -480,7 +453,6 @@ function App() {
         }}
         collabConfig={collabConfig}
         onCollaboratorChange={onCollaboratorChange}
-        documentStyling={documentStyling}
         setCharacterCount={setCharacterCount}
         setWordCount={setWordCount}
       />
