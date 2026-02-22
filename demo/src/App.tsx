@@ -282,7 +282,7 @@ function App() {
                   </Button>
                   <Button
                     variant={'ghost'}
-                    onClick={() => {}}
+                    onClick={() => { }}
                     className="flex justify-start gap-2"
                   >
                     <LucideIcon name="Share2" size="sm" />
@@ -336,53 +336,6 @@ function App() {
             size="md"
             onClick={() => setCommentDrawerOpen((prev) => !prev)}
           />
-          {!enableCollaboration ? (
-            <IconButton
-              variant={'ghost'}
-              icon="Users"
-              size="md"
-              onClick={onToggleCollaboration}
-            />
-          ) : (
-            <DynamicDropdown
-              key="navbar-more-actions"
-              align="center"
-              sideOffset={10}
-              anchorTrigger={
-                <IconButton icon={'Users'} variant="ghost" size="md" />
-              }
-              content={
-                <div className="flex flex-col gap-1 p-2 w-fit shadow-elevation-3 ">
-                  {collabConfig?.isOwner ? (
-                    <Button
-                      variant={'ghost'}
-                      onClick={() => {
-                        editorRef.current?.terminateSession();
-                        setEnableCollaboration(false);
-                        setCollabConf(undefined);
-                        setCollaborationId('');
-                        setUsername('');
-                        collabStore.clearCollabConf();
-                      }}
-                    >
-                      Stop Collaboration
-                    </Button>
-                  ) : null}
-                  <Button
-                    onClick={() => {
-                      const base_name = 'sussy_baka';
-                      const random_number = Math.floor(Math.random() * 1000000);
-                      const new_name = `${base_name}_${random_number}`;
-                      editorRef.current?.updateCollaboratorName(new_name);
-                    }}
-                    variant={'ghost'}
-                  >
-                    Update Collaborator Name
-                  </Button>
-                </div>
-              }
-            />
-          )}
 
           <Button
             onClick={publishDoc}
@@ -454,14 +407,14 @@ function App() {
         setZoomLevel={setZoomLevel}
         isNavbarVisible={isNavbarVisible}
         setIsNavbarVisible={setIsNavbarVisible}
-        onComment={(): void => {}}
-        onInlineComment={(): void => {}}
-        onMarkdownImport={(): void => {}}
-        onMarkdownExport={(): void => {}}
-        onPdfExport={(): void => {}}
-        onHtmlExport={(): void => {}}
-        onTxtExport={(): void => {}}
-        onDocxImport={(): void => {}}
+        onComment={(): void => { }}
+        onInlineComment={(): void => { }}
+        onMarkdownImport={(): void => { }}
+        onMarkdownExport={(): void => { }}
+        onPdfExport={(): void => { }}
+        onHtmlExport={(): void => { }}
+        onTxtExport={(): void => { }}
+        onDocxImport={(): void => { }}
         initialComments={initialComments}
         onCommentReply={handleReplyOnComment}
         onNewComment={handleNewComment}
@@ -472,7 +425,7 @@ function App() {
         showTOC={showTOC}
         setShowTOC={setShowTOC}
         isConnected={isConnected}
-        connectViaWallet={async () => {}}
+        connectViaWallet={async () => { }}
         isLoading={false}
         connectViaUsername={handleConnectViaUsername}
         onCopyHeadingLink={(link: string) => {
