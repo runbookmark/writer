@@ -148,7 +148,7 @@ function App() {
     if (collabConfig) {
       setCollabConf(collabConfig);
       setCollaborationId(collabConfig.collaborationId);
-      setUsername(collabConfig.username);
+      setUsername('box');
       setEnableCollaboration(true);
     }
   }, []);
@@ -282,14 +282,6 @@ function App() {
                   </Button>
                   <Button
                     variant={'ghost'}
-                    onClick={() => {}}
-                    className="flex justify-start gap-2"
-                  >
-                    <LucideIcon name="Share2" size="sm" />
-                    Share
-                  </Button>
-                  <Button
-                    variant={'ghost'}
                     onClick={() => setShowStylingControls(!showStylingControls)}
                     className="flex justify-start gap-2"
                   >
@@ -315,12 +307,6 @@ function App() {
                   commentDrawerOpen && setCommentDrawerOpen(false);
                   setIsPresentationMode(true);
                 }}
-              />
-              <IconButton
-                variant={'ghost'}
-                icon="Share2"
-                className="flex xl:hidden"
-                size="md"
               />
               <IconButton
                 variant={'ghost'}
@@ -384,15 +370,6 @@ function App() {
             />
           )}
 
-          <Button
-            onClick={publishDoc}
-            toggleLeftIcon={true}
-            leftIcon="Share2"
-            variant={'ghost'}
-            className="!min-w-[90px] !px-0 hidden xl:flex"
-          >
-            Share
-          </Button>
           <div className="flex gap-2 px-2 justify-center items-center">
             <LucideIcon name="Farcaster" />
             <div className="flex-col hidden xl:flex">
@@ -454,14 +431,14 @@ function App() {
         setZoomLevel={setZoomLevel}
         isNavbarVisible={isNavbarVisible}
         setIsNavbarVisible={setIsNavbarVisible}
-        onComment={(): void => {}}
-        onInlineComment={(): void => {}}
-        onMarkdownImport={(): void => {}}
-        onMarkdownExport={(): void => {}}
-        onPdfExport={(): void => {}}
-        onHtmlExport={(): void => {}}
-        onTxtExport={(): void => {}}
-        onDocxImport={(): void => {}}
+        onComment={(): void => { }}
+        onInlineComment={(): void => { }}
+        onMarkdownImport={(): void => { }}
+        onMarkdownExport={(): void => { }}
+        onPdfExport={(): void => { }}
+        onHtmlExport={(): void => { }}
+        onTxtExport={(): void => { }}
+        onDocxImport={(): void => { }}
         initialComments={initialComments}
         onCommentReply={handleReplyOnComment}
         onNewComment={handleNewComment}
@@ -472,7 +449,7 @@ function App() {
         showTOC={showTOC}
         setShowTOC={setShowTOC}
         isConnected={isConnected}
-        connectViaWallet={async () => {}}
+        connectViaWallet={async () => { }}
         isLoading={false}
         connectViaUsername={handleConnectViaUsername}
         onCopyHeadingLink={(link: string) => {
